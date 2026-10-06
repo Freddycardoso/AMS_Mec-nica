@@ -1,0 +1,421 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Auto Mecânica Souza - Diagnóstico e Manutenção";
+const pageDescription = "Seu carro seguro e pronto para rodar, sem orçamentos surpresa. Diagnóstico preciso e manutenção transparente em Passos/MG.";
+const canonicalURL = "https://www.automecanicasouza.com.br/";
+const whatsappNumber = "5535991995016";
+const whatsappMessage = "Olá! Vi o site de vocês e preciso agendar uma avaliação/revisão para o meu veículo.";
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const schemaData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Auto Mecânica Souza",
+  "image": "https://www.automecanicasouza.com.br/mechanic_hero_image_1791292538185.jpg",
+  "url": canonicalURL,
+  "telephone": whatsappNumber,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. dos Industriais, 297 - Monsenhor Messias",
+    "addressLocality": "Passos",
+    "addressRegion": "MG",
+    "postalCode": "37901-215",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "opens": "07:30",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Wednesday"],
+      "opens": "07:30",
+      "closes": "18:00"
+    }
+  ]
+});
+---
+
+<BaseLayout 
+  title={pageTitle} 
+  description={pageDescription} 
+  canonicalURL={canonicalURL} 
+  schema={schemaData}
+>
+  <!-- Navbar - Industrial -->
+  <header class="w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 py-5 px-6 md:px-12 flex justify-between items-center sticky top-0 z-40 machined-edge">
+    <div class="flex items-center gap-3">
+      <img src="/logo.png" alt="Auto Mecânica Souza" class="h-10 md:h-12 w-auto object-contain drop-shadow-md" />
+    </div>
+    <div class="hidden md:flex gap-4 font-mono text-sm tracking-wider uppercase">
+      <a href="#problemas" class="text-slate-400 hover:text-white px-4 py-2 hover:bg-slate-900 hover:machined-edge transition-all duration-[160ms] ease-out-strong">Problemas</a>
+      <a href="#servicos" class="text-slate-400 hover:text-white px-4 py-2 hover:bg-slate-900 hover:machined-edge transition-all duration-[160ms] ease-out-strong">Serviços</a>
+      <a href="#lojas" class="text-slate-400 hover:text-white px-4 py-2 hover:bg-slate-900 hover:machined-edge transition-all duration-[160ms] ease-out-strong">Lojas</a>
+      <a href="#faq" class="text-slate-400 hover:text-white px-4 py-2 hover:bg-slate-900 hover:machined-edge transition-all duration-[160ms] ease-out-strong">FAQ</a>
+    </div>
+  <!-- Preloader "Abertura de Garagem" -->
+  <div class="fixed inset-0 z-[100] bg-slate-950 pointer-events-none flex flex-col justify-end animate-garage-door">
+    <!-- Luz neon sutil na base da "porta" simulando o reflexo no chão antes de abrir -->
+    <div class="h-1 w-full bg-red-600/30 shadow-[0_-15px_50px_rgba(220,38,38,0.6)]"></div>
+  </div>
+
+  </header>
+
+  <!-- Hero - Full Width Fade -->
+  <section class="relative w-full min-h-[100dvh] flex flex-col justify-center px-6 md:px-12 py-20 bg-slate-950 overflow-hidden">
+    <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
+      
+      <!-- Container com o zoom reverso cinemático -->
+      <div class="absolute inset-0 animate-hero-zoom origin-center">
+        <!-- Nova imagem com composição perfeita (letreiro na direita), 100% nativa sem distorções -->
+        <img 
+          src="/images/hero_neon_final.jpg" 
+          alt="Carro Audi em galpão com Letreiro 3D" 
+          class="absolute inset-0 w-full h-full object-cover object-center contrast-[1.15] saturate-[1.2]"
+        />
+      </div>
+      
+      <!-- Fade para escurecer sutilmente o fundo do texto na lateral esquerda -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent w-full md:w-[50%] pointer-events-none"></div>
+      
+      <!-- Fade de transição super suave para a próxima seção (rodapé do hero) -->
+      <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-2xl">
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-[1.05] tracking-tight uppercase mb-8 animate-text-reveal delay-700">
+        Pronto para rodar. <br/>
+        <span class="text-red-600 drop-shadow-lg">Sem surpresas.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-xl mb-12 animate-text-reveal delay-900">
+        Diagnóstico preciso e manutenção transparente em Passos/MG. Nós mostramos exatamente o que precisa ser feito, sem enrolação.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center animate-text-reveal delay-1100">
+        <a href={whatsappLink} class="inline-flex items-center justify-center gap-3 px-8 py-5 bg-blue-600 text-white font-black uppercase tracking-wider hover:bg-blue-500 transition-all duration-[160ms] ease-out-strong active:scale-[0.97] machined-edge-strong shadow-lg shadow-blue-900/50">
+          Agendar Avaliação
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Problemas Comuns -->
+  <section id="problemas" class="w-full bg-slate-950 py-24 border-b border-slate-800">
+    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div class="mb-16 max-w-2xl reveal-up">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight uppercase leading-none mb-6">
+          Sinais que seu carro <br/>
+          <span class="text-slate-500">pede socorro.</span>
+        </h2>
+        <p class="text-xl text-slate-400">
+          Oficinas comuns trocam peças na base do "achismo". Nós mapeamos o sintoma e resolvemos na raiz.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {[
+          { id: "01", symptom: "Luz da injeção acesa", desc: "Diagnóstico computadorizado avançado para encontrar a falha eletrônica exata." },
+          { id: "02", symptom: "Barulho metálico ao frear", desc: "Inspeção completa de pastilhas e discos para garantir sua segurança." },
+          { id: "03", symptom: "Vibração no volante", desc: "Alinhamento e balanceamento de alta precisão." },
+          { id: "04", symptom: "Ar condicionado fraco", desc: "Recarga de gás, higienização e reparo de vazamentos no sistema." },
+          { id: "05", symptom: "Carro falhando ou engasgando", desc: "Limpeza de bicos, verificação de velas e de todo o sistema de ignição." },
+          { id: "06", symptom: "Manchas de óleo no chão", desc: "Inspeção rigorosa do cárter, juntas e retentores para sanar vazamentos." }
+        ].map(item => (
+          <div class="relative bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800/80 p-8 rounded-sm hover:border-red-600/50 transition-all duration-300 group reveal-up flex flex-col overflow-hidden">
+            <!-- Efeito de brilho/scan no hover -->
+            <div class="absolute -inset-px bg-gradient-to-r from-red-600/0 via-red-600/0 to-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <!-- Linha de detalhe no topo -->
+            <div class="absolute top-0 left-0 w-full h-[2px] bg-slate-800 group-hover:bg-red-600 transition-colors duration-300"></div>
+            
+            <div class="flex items-center justify-between mb-6 relative z-10">
+              <div class="font-mono text-slate-600 font-bold text-sm tracking-widest">{item.id}</div>
+              <!-- Indicador estilo painel de carro (luz de alerta) -->
+              <div class="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-red-600 group-hover:shadow-[0_0_10px_rgba(220,38,38,0.8)] group-hover:animate-pulse transition-all duration-300"></div>
+            </div>
+            
+            <h3 class="font-bold text-xl text-white uppercase tracking-tight mb-3 relative z-10 group-hover:text-red-50 transition-colors">{item.symptom}</h3>
+            <p class="text-slate-400 leading-relaxed flex-grow relative z-10">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 flex justify-center reveal-up">
+        <div class="inline-flex flex-col sm:flex-row items-center gap-6 bg-slate-900/60 p-6 md:p-8 rounded-sm border border-slate-800">
+          <div class="text-center sm:text-left max-w-md">
+            <h4 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">Identificou algum desses sinais?</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">Não espere o problema se agravar. Uma avaliação rápida evita prejuízos enormes e garante a sua segurança.</p>
+          </div>
+          <a href={whatsappLink} class="whitespace-nowrap inline-flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-black uppercase tracking-wider hover:bg-blue-500 transition-all duration-[160ms] ease-out-strong active:scale-[0.97] machined-edge-strong shadow-lg shadow-blue-900/50">
+            Falar com Especialista
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Serviços com Fotos Reais -->
+  <section id="servicos" class="w-full bg-slate-900 py-24 border-b border-slate-800">
+    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div class="flex flex-col mb-16 reveal-up">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight uppercase leading-none">
+          Nossas <span class="text-slate-500">Especialidades</span>
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Diagnóstico -->
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up">
+          <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
+            <img src="/images/diag_computadorizado.jpg" alt="Diagnóstico Computadorizado" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+          </div>
+          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Diagnóstico<br/>Computadorizado</h3>
+          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Equipamentos de ponta para leitura de falhas eletrônicas. Não "achamos" o problema, nós o lemos com exatidão no painel.</p>
+        </div>
+        
+        <!-- Suspensão e Freios -->
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up" style="transition-delay: 50ms;">
+          <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
+            <img src="/images/freios_suspensao.jpg" alt="Suspensão e Freios" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+          </div>
+          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Suspensão<br/>e Freios</h3>
+          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Sua segurança não aceita economia burra. Utilizamos peças certificadas para garantir estabilidade e frenagem perfeita.</p>
+        </div>
+
+        <!-- Injeção Eletrônica -->
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up">
+          <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
+            <img src="/images/injecao_motor.jpg" alt="Injeção Eletrônica" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+          </div>
+          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Injeção<br/>Eletrônica</h3>
+          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Limpeza, equalização de bicos e parametrização do sistema para seu motor rodar suave, forte e econômico.</p>
+        </div>
+
+        <!-- Revisão Preventiva -->
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up" style="transition-delay: 50ms;">
+          <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
+            <img src="/images/revisao_preventiva.jpg" alt="Revisão Preventiva" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+          </div>
+          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Revisão<br/>Preventiva</h3>
+          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Prevenção custa muito menos que o guincho. Check-up completo de fluidos, filtros, correias e itens de segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Nossas Lojas -->
+  <section id="lojas" class="w-full bg-slate-950 py-24 border-b border-slate-800">
+    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div class="mb-16 max-w-2xl reveal-up">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight uppercase leading-none mb-6">
+          Nossas <br/><span class="text-blue-600">Unidades</span>
+        </h2>
+        <p class="text-xl text-slate-400">
+          Duas estruturas completas, padronizadas e prontas para receber seu veículo com o mesmo nível de excelência técnica.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Loja 1 -->
+        <div class="group flex flex-col reveal-up">
+          <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 mb-6 relative">
+            <img src="/images/loja_1.jpg" alt="Fachada Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <div class="absolute inset-0 border border-white/5 pointer-events-none"></div>
+          </div>
+          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Unidade Matriz</h3>
+          <p class="text-slate-400 text-lg leading-relaxed mb-4">Av. dos Industriais, 297 - Monsenhor Messias<br/>Passos - MG, 37901-215</p>
+          <a href="#" class="inline-flex items-center gap-2 text-blue-500 font-bold hover:text-white transition-colors">
+            Como chegar
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Loja 2 -->
+        <div class="group flex flex-col reveal-up" style="transition-delay: 100ms;">
+          <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 mb-6 relative">
+            <img src="/images/loja_2.jpg" alt="Interior Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <div class="absolute inset-0 border border-white/5 pointer-events-none"></div>
+          </div>
+          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Unidade Express</h3>
+          <p class="text-slate-400 text-lg leading-relaxed mb-4">Rua Nova, 100 - Centro<br/>Passos - MG, 37900-000</p>
+          <a href="#" class="inline-flex items-center gap-2 text-blue-500 font-bold hover:text-white transition-colors">
+            Como chegar
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Autoridade (High Contrast Block) -->
+  <section class="w-full bg-slate-900 py-24 border-b border-slate-800 machined-edge">
+    <div class="container mx-auto px-6 md:px-12 max-w-7xl reveal-up">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white uppercase tracking-tight leading-none mb-8">
+            Oficina referência em Passos
+          </h2>
+          <p class="text-xl text-slate-400 font-medium mb-10 max-w-[40ch]">
+            Construímos nossa reputação com foco absoluto em diagnóstico honesto e execução precisa.
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="font-mono text-4xl font-bold text-white">5.0</div>
+            <div class="flex flex-col">
+              <div class="flex text-red-600 mb-1 drop-shadow-[0_2px_4px_rgba(220,38,38,0.25)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="font-mono text-sm font-bold text-slate-500 uppercase tracking-widest">Google Avaliações</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col justify-center border-l-2 border-slate-800 pl-8 md:pl-12">
+          <p class="text-2xl md:text-3xl text-white font-bold mb-6 leading-tight">
+            "Atendimento direto ao ponto. Levei meu carro achando que gastaria muito com a suspensão, e me mostraram que era só uma peça simples."
+          </p>
+          <div class="font-mono text-slate-500 uppercase font-bold tracking-widest">— Marcos A.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section id="faq" class="w-full bg-slate-950 py-24 border-b border-slate-800">
+    <div class="container mx-auto px-6 md:px-12 max-w-4xl">
+      <div class="mb-16 reveal-up">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white uppercase tracking-tight leading-none">
+          Dúvidas <span class="text-slate-500">Frequentes</span>
+        </h2>
+      </div>
+      
+      <div class="flex flex-col gap-4">
+        <details class="group bg-slate-950 border border-slate-800 rounded-sm hover:bg-slate-900/50 hover:machined-edge open:bg-slate-900 open:border-slate-700 open:machined-edge transition-all duration-[160ms] ease-out-strong reveal-up">
+          <summary class="flex items-center justify-between cursor-pointer p-6 md:p-8 font-bold text-xl md:text-2xl text-white uppercase tracking-tight group-hover:text-blue-500 group-open:text-blue-500 transition-colors list-none rounded-sm">
+            Atendem todas as marcas?
+            <span class="text-slate-600 group-open:text-blue-500 group-open:rotate-45 transition-transform duration-[160ms] ease-out-strong">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </span>
+          </summary>
+          <div class="pb-8 px-6 md:px-8 text-slate-400 text-lg leading-relaxed max-w-[65ch]">
+            Sim, realizamos diagnósticos e manutenções na maioria dos veículos nacionais e importados.
+          </div>
+        </details>
+        
+        <details class="group bg-slate-950 border border-slate-800 rounded-sm hover:bg-slate-900/50 hover:machined-edge open:bg-slate-900 open:border-slate-700 open:machined-edge transition-all duration-[160ms] ease-out-strong reveal-up">
+          <summary class="flex items-center justify-between cursor-pointer p-6 md:p-8 font-bold text-xl md:text-2xl text-white uppercase tracking-tight group-hover:text-blue-500 group-open:text-blue-500 transition-colors list-none rounded-sm">
+            Prazo para diagnóstico?
+            <span class="text-slate-600 group-open:text-blue-500 group-open:rotate-45 transition-transform duration-[160ms] ease-out-strong">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </span>
+          </summary>
+          <div class="pb-8 px-6 md:px-8 text-slate-400 text-lg leading-relaxed max-w-[65ch]">
+            Na maioria dos casos, entregamos o diagnóstico completo e o orçamento no mesmo dia.
+          </div>
+        </details>
+
+        <details class="group bg-slate-950 border border-slate-800 rounded-sm hover:bg-slate-900/50 hover:machined-edge open:bg-slate-900 open:border-slate-700 open:machined-edge transition-all duration-[160ms] ease-out-strong reveal-up">
+          <summary class="flex items-center justify-between cursor-pointer p-6 md:p-8 font-bold text-xl md:text-2xl text-white uppercase tracking-tight group-hover:text-blue-500 group-open:text-blue-500 transition-colors list-none rounded-sm">
+            Abrem aos sábados?
+            <span class="text-slate-600 group-open:text-blue-500 group-open:rotate-45 transition-transform duration-[160ms] ease-out-strong">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </span>
+          </summary>
+          <div class="pb-8 px-6 md:px-8 text-slate-400 text-lg leading-relaxed max-w-[65ch]">
+            Não. Nosso atendimento é de segunda a sexta, das 07:30 às 18:00, focando na entrega rápida.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="w-full bg-slate-950 pt-24 pb-12 reveal-up">
+    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <img src="/logo.png" alt="Auto Mecânica Souza" class="h-10 w-auto object-contain opacity-80" />
+          </div>
+          <p class="text-slate-400">Oficina referência em diagnóstico e manutenção em Passos/MG.</p>
+        </div>
+        
+        <div>
+          <h3 class="font-mono text-sm font-bold text-slate-600 mb-6 uppercase tracking-widest">Contato</h3>
+          <ul class="space-y-4 font-mono text-sm text-slate-300">
+            <li>
+              Av. dos Industriais, 297<br/>
+              Monsenhor Messias<br/>
+              Passos - MG, 37901-215
+            </li>
+            <li class="pt-2">
+              <a href={whatsappLink} class="text-blue-500 hover:text-white transition-colors font-bold">(35) 99199-5016</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-mono text-sm font-bold text-slate-600 mb-6 uppercase tracking-widest">Horário</h3>
+          <ul class="space-y-3 text-slate-300">
+            <li class="flex justify-between border-b border-slate-800 pb-2">
+              <span>Seg a Sex</span>
+              <span class="font-mono text-sm">07:30 - 18:00</span>
+            </li>
+            <li class="flex justify-between pt-2">
+              <span>Sáb e Dom</span>
+              <span class="font-mono text-sm text-slate-500">Fechado</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-800 text-slate-600 font-mono text-xs uppercase tracking-widest">
+        <span>&copy; {new Date().getFullYear()} Auto Mecânica Souza</span>
+        <span class="mt-4 md:mt-0">Todos os direitos reservados</span>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- WhatsApp Fixo -->
+  <a 
+    href={whatsappLink} 
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed bottom-6 right-6 z-50 bg-green-500 text-slate-950 p-4 transition-transform duration-[160ms] ease-out-strong active:scale-[0.92] shadow-2xl flex items-center justify-center rounded-full hover:scale-110"
+    aria-label="Fale conosco no WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</BaseLayout>
+
+<script>
+  // Intersection Observer for scroll animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-up').forEach((el) => {
+      observer.observe(el);
+    });
+  });
+</script>

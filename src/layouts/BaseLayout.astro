@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  schema?: string;
+  ogImage?: string;
+}
+
+const { title, description, canonicalURL, schema, ogImage } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {schema && <script type="application/ld+json" set:html={schema}></script>}
+  </head>
+  <body class="bg-slate-950 text-slate-200 antialiased overflow-x-hidden font-sans selection:bg-yellow-500 selection:text-slate-950 industrial-grid">
+    <slot />
+  </body>
+</html>
