@@ -57,10 +57,10 @@ const schemaData = JSON.stringify({
       <a href="#lojas" class="text-slate-400 hover:text-white px-4 py-2 hover:bg-slate-900 hover:machined-edge transition-all duration-[160ms] ease-out-strong">Lojas</a>
       <a href="#faq" class="text-slate-400 hover:text-white px-4 py-2 hover:bg-slate-900 hover:machined-edge transition-all duration-[160ms] ease-out-strong">FAQ</a>
     </div>
-  <!-- Preloader "Abertura de Garagem" -->
-  <div class="fixed inset-0 z-[100] bg-slate-950 pointer-events-none flex flex-col justify-end animate-garage-door">
+  <!-- Preloader "Abertura de Garagem Real" -->
+  <div class="fixed inset-0 z-[100] pointer-events-none flex flex-col justify-end animate-garage-door bg-[url('/images/garage_door.png')] bg-cover bg-center bg-no-repeat shadow-[0_20px_50px_rgba(0,0,0,0.9)] border-b-8 border-slate-900">
     <!-- Luz neon sutil na base da "porta" simulando o reflexo no chão antes de abrir -->
-    <div class="h-1 w-full bg-red-600/30 shadow-[0_-15px_50px_rgba(220,38,38,0.6)]"></div>
+    <div class="h-1 w-full bg-red-600/50 shadow-[0_-15px_50px_rgba(220,38,38,0.8)]"></div>
   </div>
 
   </header>
