@@ -1,43 +1,91 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = "Auto Mecânica Souza - Diagnóstico e Manutenção";
-const pageDescription = "Seu carro seguro e pronto para rodar, sem orçamentos surpresa. Diagnóstico preciso e manutenção transparente em Passos/MG.";
+const pageTitle = "Oficina Mecânica em Passos - MG | Auto Mecânica Souza";
+const pageDescription = "Precisa de manutenção automotiva em Passos/MG? Na Auto Mecânica Souza oferecemos diagnóstico preciso e serviços com garantia. Solicite seu orçamento rápido!";
 const canonicalURL = "https://www.automecanicasouza.com.br/";
 const whatsappNumber = "5535991995016";
 const whatsappMessage = "Olá! Vi o site de vocês e preciso agendar uma avaliação/revisão para o meu veículo.";
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-const schemaData = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "AutoRepair",
-  "name": "Auto Mecânica Souza",
-  "image": "https://www.automecanicasouza.com.br/mechanic_hero_image_1791292538185.jpg",
-  "url": canonicalURL,
-  "telephone": whatsappNumber,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Av. dos Industriais, 297 - Monsenhor Messias",
-    "addressLocality": "Passos",
-    "addressRegion": "MG",
-    "postalCode": "37901-215",
-    "addressCountry": "BR"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
-      "opens": "07:30",
-      "closes": "18:00"
+const schemaData = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Auto Mecânica Souza",
+    "image": "https://www.automecanicasouza.com.br/logo.png",
+    "url": canonicalURL,
+    "telephone": "+5535991995016",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. dos Industriais, 297 - Monsenhor Messias",
+      "addressLocality": "Passos",
+      "addressRegion": "MG",
+      "postalCode": "37901-215",
+      "addressCountry": "BR"
     },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Wednesday"],
-      "opens": "07:30",
-      "closes": "18:00"
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:30",
+        "closes": "18:00"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qual o prazo para o diagnóstico do veículo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A maioria dos diagnósticos é realizada no mesmo dia. Utilizamos experiência e equipamentos dedicados para identificar com precisão o problema do seu carro em Passos/MG, garantindo rapidez e transparência."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vocês dão garantia do serviço mecânico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Com certeza. Todos os nossos serviços têm garantia total de mão de obra. Além disso, as peças instaladas na Auto Mecânica Souza acompanham a garantia integral do fabricante."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A Auto Mecânica Souza atende carros de todas as marcas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, atendemos veículos das principais marcas nacionais e importadas. Nossa equipe possui experiência multimarcas para oferecer a melhor manutenção preventiva e corretiva."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quais as formas de pagamento aceitas na oficina?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aceitamos Pix, cartões de débito e parcelamos nos principais cartões de crédito. Facilitamos o pagamento para que a manutenção do seu veículo seja acessível."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Manutenção Automotiva e Diagnóstico Mecânico",
+    "provider": {
+      "@type": "AutoRepair",
+      "name": "Auto Mecânica Souza"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Passos",
+      "sameAs": "https://pt.wikipedia.org/wiki/Passos_(Minas_Gerais)"
     }
-  ]
-});
+  }
+]);
 ---
 
 <BaseLayout 
