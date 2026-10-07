@@ -454,11 +454,11 @@ const schemaData = JSON.stringify([
           </div>
         </div>
         
-        <div class="flex flex-col justify-center border-l-2 border-slate-800 pl-8 md:pl-12 w-full overflow-hidden relative" id="reviews-carousel">
-          <!-- Gradient Mask for smooth edges -->
-          <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
+        <div class="flex flex-col border-l-2 border-slate-800 pl-0 md:pl-12 w-full overflow-hidden relative mt-12 lg:mt-0" id="reviews-carousel">
+          <!-- Gradient Mask for smooth edges (only visible on right edge) -->
+          <div class="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none hidden md:block"></div>
           
-          <div id="reviews-track" class="flex gap-12 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] pb-4 w-full scroll-smooth">
+          <div id="reviews-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] pb-8 pt-4 w-full scroll-smooth items-stretch">
             {[
               {
                 text: "Só levo meus carros na Mecânica Souza há anos! Wendel que é o proprietário, sempre muito comprometido, atencioso e honesto com os clientes! Recomendo!",
@@ -477,19 +477,32 @@ const schemaData = JSON.stringify([
                 author: "Vitor Rodrigues Cardoso"
               }
             ].map((review) => (
-              <div class="min-w-[100%] snap-center flex flex-col justify-center shrink-0">
-                <p class="text-2xl md:text-3xl text-white font-bold mb-6 leading-tight">
-                  "{review.text}"
-                </p>
-                <div class="font-mono text-slate-500 uppercase font-bold tracking-widest flex items-center gap-3">
-                  <span class="w-6 h-[2px] bg-red-600"></span>
-                  {review.author}
+              <div class="min-w-[90%] md:min-w-[100%] snap-center shrink-0 md:pr-8 flex">
+                <div class="bg-slate-900/80 border border-slate-800 p-8 rounded-sm relative group flex flex-col w-full">
+                  <div class="absolute top-0 left-0 w-full h-[2px] bg-slate-800 group-hover:bg-red-600 transition-colors duration-300"></div>
+                  
+                  <div class="flex text-yellow-500 mb-6 drop-shadow-[0_2px_4px_rgba(234,179,8,0.2)] gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                  
+                  <p class="text-xl md:text-2xl text-white font-bold mb-8 leading-relaxed flex-grow">
+                    "{review.text}"
+                  </p>
+                  
+                  <div class="font-mono text-slate-400 uppercase font-bold tracking-widest flex items-center gap-3 text-sm">
+                    <span class="w-6 h-[2px] bg-red-600"></span>
+                    {review.author}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
           
-          <div class="flex items-center gap-4 mt-8 relative z-20">
+          <div class="flex items-center gap-4 mt-2 pl-2 relative z-20">
             <button id="prev-review" class="p-3 bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-all rounded-full outline-none focus:ring-2 focus:ring-blue-500 active:scale-95 cursor-pointer" aria-label="Avaliação anterior">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
             </button>
