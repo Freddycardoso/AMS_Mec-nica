@@ -104,13 +104,15 @@ const schemaData = JSON.stringify({
     <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
       
       <!-- Container com o zoom reverso cinemático -->
-      <div class="absolute inset-0 animate-hero-zoom origin-center">
-        <!-- Nova imagem com composição perfeita (letreiro na direita), 100% nativa sem distorções -->
+      <div class="absolute inset-0 animate-hero-zoom origin-center bg-slate-950 flex items-center justify-center overflow-hidden">
+        <!-- Imagem 100% sem recortes (object-contain) na resolução original -->
         <img 
           src="/images/hero_hq.webp" 
           alt="Carro Audi em galpão com Letreiro 3D" 
-          class="absolute inset-0 w-full h-full object-cover object-center contrast-[1.15] saturate-[1.2]"
+          class="w-full h-full object-contain object-center contrast-[1.15] saturate-[1.2]"
         />
+        <!-- Overlay radial (Vignette/Fade) para mesclar as bordas da imagem perfeitamente ao fundo do site -->
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at center, transparent 40%, #020617 90%);"></div>
       </div>
       
       <!-- Fade para escurecer sutilmente o fundo do texto na lateral esquerda -->
