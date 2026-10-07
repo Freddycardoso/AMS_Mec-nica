@@ -58,7 +58,7 @@ const schemaData = JSON.stringify({
       }
       #garage-door-preloader {
         position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
+        top: 0; left: 0; width: 100%; height: 100svh;
         z-index: 9999;
         background-color: #020617;
         background-image: url('/images/garage_door_hq.webp?v=2');
@@ -73,6 +73,13 @@ const schemaData = JSON.stringify({
         border-bottom: 8px solid #0f172a;
         /* 1s de espera, 3.5s de subida pesada */
         animation: garage-door-inline 3.5s cubic-bezier(0.77, 0, 0.175, 1) 1s both;
+      }
+      @media (max-width: 768px) {
+        #garage-door-preloader {
+          /* Encaixe da logo no mobile para nao cortar e alinhamento pela base */
+          background-size: 100% auto;
+          background-position: center center;
+        }
       }
       @keyframes garage-door-inline {
         0% { transform: translateY(0); }
@@ -100,39 +107,40 @@ const schemaData = JSON.stringify({
   </div>
 
   <!-- Hero - Full Width Fade -->
-  <section class="relative w-full min-h-[100svh] flex flex-col justify-center px-6 md:px-12 py-20 bg-slate-950 overflow-hidden">
+  <section class="relative w-full min-h-[100svh] flex flex-col justify-end md:justify-center px-6 md:px-12 py-12 md:py-20 bg-slate-950 overflow-hidden">
     <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
       
       <!-- Container com o zoom reverso cinemático -->
-      <div class="absolute inset-0 animate-hero-zoom origin-center bg-slate-950 flex items-center justify-center overflow-hidden">
-        <!-- Imagem 100% sem recortes (object-contain) na resolução original -->
+      <div class="absolute inset-0 animate-hero-zoom origin-center bg-slate-950 flex flex-col md:flex-row items-start md:items-center justify-center overflow-hidden">
+        <!-- Imagem Premium: cover focada no carro no mobile (para não distorcer) e contain puro no desktop -->
         <img 
           src="/images/hero_hq.webp?v=2" 
           alt="Carro Audi em galpão com Letreiro 3D" 
-          class="w-full h-full object-contain object-center contrast-[1.15] saturate-[1.2]"
+          class="w-full h-[65svh] md:h-full object-cover object-[center_60%] md:object-contain md:object-center contrast-[1.15] saturate-[1.2]"
         />
-        <!-- Overlay radial (Vignette/Fade) para mesclar as bordas da imagem perfeitamente ao fundo do site -->
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at center, transparent 40%, #020617 90%);"></div>
+        <!-- Overlay radial (Vignette/Fade) para o desktop -->
+        <div class="hidden md:block absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at center, transparent 40%, #020617 90%);"></div>
       </div>
       
-      <!-- Fade para escurecer sutilmente o fundo do texto na lateral esquerda -->
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent w-full md:w-[50%] pointer-events-none"></div>
+      <!-- Fades dinâmicos: Lateral no desktop, Inferior (Bottom-up forte) no mobile para leitura perfeita -->
+      <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent w-[50%] pointer-events-none"></div>
+      <div class="block md:hidden absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent pointer-events-none"></div>
       
       <!-- Fade de transição super suave para a próxima seção (rodapé do hero) -->
-      <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-full h-32 md:h-48 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none"></div>
     </div>
     
-    <div class="relative z-10 max-w-2xl">
-      <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-[1.05] tracking-tight uppercase mb-8 animate-text-reveal [animation-delay:2.5s]">
+    <div class="relative z-10 max-w-2xl mt-auto md:mt-0 pt-[20vh] md:pt-0">
+      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-[1.05] tracking-tight uppercase mb-6 md:mb-8 animate-text-reveal [animation-delay:2.5s]">
         Você não precisa entender de mecânica, <br/>
         <span class="text-red-600 drop-shadow-lg">só precisa de quem entende.</span>
       </h1>
-      <p class="text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-xl mb-12 animate-text-reveal [animation-delay:3.0s]">
+      <p class="text-base md:text-xl text-slate-300 font-medium leading-relaxed max-w-xl mb-8 md:mb-12 animate-text-reveal [animation-delay:3.0s]">
         Diagnóstico preciso e manutenção transparente em Passos/MG. Nós mostramos exatamente o que precisa ser feito, sem enrolação.
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center animate-text-reveal [animation-delay:3.5s]">
-        <a href={whatsappLink} class="inline-flex items-center justify-center gap-3 px-8 py-5 bg-blue-600 text-white font-black uppercase tracking-wider hover:bg-blue-500 transition-all duration-[160ms] ease-out-strong active:scale-[0.97] machined-edge-strong shadow-lg shadow-blue-900/50">
+      <div class="flex flex-col sm:flex-row gap-4 md:gap-6 items-stretch sm:items-center animate-text-reveal [animation-delay:3.5s]">
+        <a href={whatsappLink} class="inline-flex items-center justify-center gap-3 px-6 md:px-8 py-4 md:py-5 bg-blue-600 text-white font-black uppercase tracking-wider hover:bg-blue-500 transition-all duration-[160ms] ease-out-strong active:scale-[0.97] machined-edge-strong shadow-lg shadow-blue-900/50">
           Agendar Avaliação
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
@@ -262,49 +270,54 @@ const schemaData = JSON.stringify({
         <div class="group flex flex-col reveal-up">
           <div class="grid grid-cols-2 gap-2 mb-6">
             <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/loja_1.jpg" alt="Fachada Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-100" />
+              <img src="/images/loja_1.jpeg" alt="Fachada Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-100" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
                 <span class="text-white font-mono text-sm tracking-widest font-bold">FACHADA</span>
               </div>
             </div>
             <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/interior_1.jpg" alt="Interior Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-200" />
+              <img src="/images/interior_1.jpeg" alt="Interior Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-200" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
                 <span class="text-white font-mono text-sm tracking-widest font-bold">INTERIOR</span>
               </div>
             </div>
           </div>
-          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Loja 01</h3>
-          <p class="text-slate-400 text-lg leading-relaxed mb-4">Av. dos Industriais, 297 - Monsenhor Messias<br/>Passos - MG, 37901-215</p>
-          <a href="#" class="inline-flex items-center gap-2 text-blue-500 font-bold hover:text-white transition-colors">
-            Como chegar
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="font-bold text-2xl text-white uppercase tracking-tight">Unidade 01</h3>
         </div>
 
         <!-- Loja 2 -->
         <div class="group flex flex-col reveal-up" style="transition-delay: 150ms;">
           <div class="grid grid-cols-2 gap-2 mb-6">
             <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/loja_2.jpg" alt="Fachada Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-100" />
+              <img src="/images/loja_2.jpeg" alt="Fachada Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-100" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
                 <span class="text-white font-mono text-sm tracking-widest font-bold">FACHADA</span>
               </div>
             </div>
             <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/interior_2.jpg" alt="Interior Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-200" />
+              <img src="/images/interior_2.jpeg" alt="Interior Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-200" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
                 <span class="text-white font-mono text-sm tracking-widest font-bold">INTERIOR</span>
               </div>
             </div>
           </div>
-          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Loja 02</h3>
-          <p class="text-slate-400 text-lg leading-relaxed mb-4">Av. dos Industriais, 297 - Monsenhor Messias<br/>Passos - MG, 37901-215 (Ao lado da Loja 01)</p>
-          <a href="#" class="inline-flex items-center gap-2 text-blue-500 font-bold hover:text-white transition-colors">
-            Como chegar
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="font-bold text-2xl text-white uppercase tracking-tight">Unidade 02</h3>
         </div>
+      </div>
+      
+      <!-- Endereço Unificado -->
+      <div class="mt-12 p-8 bg-slate-900/50 border border-slate-800 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 reveal-up">
+        <div class="text-center md:text-left">
+          <h4 class="text-white font-bold text-xl uppercase tracking-tight mb-2">Visite nossas estruturas unificadas</h4>
+          <p class="text-slate-400 text-lg leading-relaxed">
+            Av. dos Industriais, 297 - Monsenhor Messias<br/>
+            Passos - MG, 37901-215
+          </p>
+        </div>
+        <a href="#" class="w-full md:w-auto inline-flex items-center justify-center gap-3 px-6 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold uppercase tracking-wider transition-colors machined-edge">
+          Traçar Rota
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
