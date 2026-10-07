@@ -76,9 +76,9 @@ const schemaData = JSON.stringify({
       }
       @media (max-width: 768px) {
         #garage-door-preloader {
-          /* Encaixe da logo no mobile para nao cortar e alinhamento pela base */
-          background-size: 100% auto;
-          background-position: center center;
+          /* Encaixe forçado: 100% 100% cobre a tela inteira, evita bordas pretas e evita cortar o logo nas laterais */
+          background-size: 100% 100%;
+          background-position: center;
         }
       }
       @keyframes garage-door-inline {
