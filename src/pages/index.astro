@@ -255,18 +255,18 @@ const schemaData = JSON.stringify([
           { symptom: "Carro falhando ou engasgando", desc: "Limpeza de bicos, verificação de velas e de todo o sistema de ignição." },
           { symptom: "Manchas de óleo no chão", desc: "Inspeção rigorosa do cárter, juntas e retentores para sanar vazamentos." }
         ].map(item => (
-          <div class="relative bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800/80 p-8 rounded-sm hover:border-red-600/50 transition-all duration-300 group reveal-up flex flex-col overflow-hidden">
-            <!-- Efeito de brilho/scan no hover -->
-            <div class="absolute -inset-px bg-gradient-to-r from-red-600/0 via-red-600/0 to-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="sinal-card relative bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800/80 p-8 rounded-sm hover:border-red-600/50 [&.mobile-active]:border-red-600/50 transition-all duration-300 group reveal-up flex flex-col overflow-hidden">
+            <!-- Efeito de brilho/scan no hover e no scroll -->
+            <div class="absolute -inset-px bg-gradient-to-r from-red-600/0 via-red-600/0 to-red-600/10 opacity-0 group-hover:opacity-100 group-[.mobile-active]:opacity-100 transition-opacity duration-500"></div>
             <!-- Linha de detalhe no topo -->
-            <div class="absolute top-0 left-0 w-full h-[2px] bg-slate-800 group-hover:bg-red-600 transition-colors duration-300"></div>
+            <div class="absolute top-0 left-0 w-full h-[2px] bg-slate-800 group-hover:bg-red-600 group-[.mobile-active]:bg-red-600 transition-colors duration-300"></div>
             
             <div class="flex items-center justify-end mb-6 relative z-10">
               <!-- Indicador estilo painel de carro (luz de alerta) -->
-              <div class="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-red-600 group-hover:shadow-[0_0_10px_rgba(220,38,38,0.8)] group-hover:animate-pulse transition-all duration-300"></div>
+              <div class="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-red-600 group-[.mobile-active]:bg-red-600 group-hover:shadow-[0_0_10px_rgba(220,38,38,0.8)] group-[.mobile-active]:shadow-[0_0_10px_rgba(220,38,38,0.8)] group-hover:animate-pulse group-[.mobile-active]:animate-pulse transition-all duration-300"></div>
             </div>
             
-            <h3 class="font-bold text-xl text-white uppercase tracking-tight mb-3 relative z-10 group-hover:text-red-50 transition-colors">{item.symptom}</h3>
+            <h3 class="font-bold text-xl text-white uppercase tracking-tight mb-3 relative z-10 group-hover:text-red-50 group-[.mobile-active]:text-red-50 transition-colors">{item.symptom}</h3>
             <p class="text-slate-400 leading-relaxed flex-grow relative z-10">{item.desc}</p>
           </div>
         ))}
@@ -683,6 +683,21 @@ const schemaData = JSON.stringify([
     document.querySelectorAll('.reveal-up').forEach((el) => {
       observer.observe(el);
     });
+
+    // Mobile interactive cards (Sinais de socorro)
+    if (window.innerWidth < 768) {
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('mobile-active');
+          } else {
+            entry.target.classList.remove('mobile-active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 });
+      
+      document.querySelectorAll('.sinal-card').forEach(el => cardObserver.observe(el));
+    }
 
     // Reviews Carousel logic
     const track = document.getElementById('reviews-track');
