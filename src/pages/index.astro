@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = "Oficina Mecânica em Passos - MG | Auto Mecânica Souza";
+const pageTitle = "AMS serviços automotivos";
 const pageDescription = "Precisa de manutenção automotiva em Passos/MG? Na Auto Mecânica Souza oferecemos diagnóstico preciso e serviços com garantia. Solicite seu orçamento rápido!";
 const canonicalURL = "https://www.automecanicasouza.com.br/";
 const whatsappNumber = "5535991995016";
@@ -248,12 +248,12 @@ const schemaData = JSON.stringify([
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {[
-          { id: "01", symptom: "Luz da injeção acesa", desc: "Diagnóstico computadorizado avançado para encontrar a falha eletrônica exata." },
-          { id: "02", symptom: "Barulho metálico ao frear", desc: "Inspeção completa de pastilhas e discos para garantir sua segurança." },
-          { id: "03", symptom: "Vibração no volante", desc: "Alinhamento e balanceamento de alta precisão." },
-          { id: "04", symptom: "Ar condicionado fraco", desc: "Recarga de gás, higienização e reparo de vazamentos no sistema." },
-          { id: "05", symptom: "Carro falhando ou engasgando", desc: "Limpeza de bicos, verificação de velas e de todo o sistema de ignição." },
-          { id: "06", symptom: "Manchas de óleo no chão", desc: "Inspeção rigorosa do cárter, juntas e retentores para sanar vazamentos." }
+          { symptom: "Luz da injeção acesa", desc: "Diagnóstico computadorizado avançado para encontrar a falha eletrônica exata." },
+          { symptom: "Barulho metálico ao frear", desc: "Inspeção completa de pastilhas e discos para garantir sua segurança." },
+          { symptom: "Vibração no volante", desc: "Alinhamento e balanceamento de alta precisão." },
+          { symptom: "Ar condicionado fraco", desc: "Recarga de gás, higienização e reparo de vazamentos no sistema." },
+          { symptom: "Carro falhando ou engasgando", desc: "Limpeza de bicos, verificação de velas e de todo o sistema de ignição." },
+          { symptom: "Manchas de óleo no chão", desc: "Inspeção rigorosa do cárter, juntas e retentores para sanar vazamentos." }
         ].map(item => (
           <div class="relative bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800/80 p-8 rounded-sm hover:border-red-600/50 transition-all duration-300 group reveal-up flex flex-col overflow-hidden">
             <!-- Efeito de brilho/scan no hover -->
@@ -261,8 +261,7 @@ const schemaData = JSON.stringify([
             <!-- Linha de detalhe no topo -->
             <div class="absolute top-0 left-0 w-full h-[2px] bg-slate-800 group-hover:bg-red-600 transition-colors duration-300"></div>
             
-            <div class="flex items-center justify-between mb-6 relative z-10">
-              <div class="font-mono text-slate-600 font-bold text-sm tracking-widest">{item.id}</div>
+            <div class="flex items-center justify-end mb-6 relative z-10">
               <!-- Indicador estilo painel de carro (luz de alerta) -->
               <div class="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-red-600 group-hover:shadow-[0_0_10px_rgba(220,38,38,0.8)] group-hover:animate-pulse transition-all duration-300"></div>
             </div>
@@ -372,7 +371,7 @@ const schemaData = JSON.stringify([
         <!-- Loja 1 -->
         <div class="group flex flex-col reveal-up bg-slate-900/40 md:bg-transparent p-6 md:p-0 border border-slate-800 md:border-none rounded-sm">
           <h3 class="font-black text-2xl md:text-3xl text-white uppercase tracking-tight mb-6 pb-4 border-b border-slate-800/60 flex items-center justify-between">
-            <span><span class="text-blue-500 mr-2">#01</span> Unidade</span>
+            <span>Unidade I</span>
           </h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
@@ -393,7 +392,7 @@ const schemaData = JSON.stringify([
         <!-- Loja 2 -->
         <div class="group flex flex-col reveal-up bg-slate-900/40 md:bg-transparent p-6 md:p-0 border border-slate-800 md:border-none rounded-sm" style="transition-delay: 150ms;">
           <h3 class="font-black text-2xl md:text-3xl text-white uppercase tracking-tight mb-6 pb-4 border-b border-slate-800/60 flex items-center justify-between">
-            <span><span class="text-blue-500 mr-2">#02</span> Unidade</span>
+            <span>Unidade II</span>
           </h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
@@ -455,11 +454,45 @@ const schemaData = JSON.stringify([
           </div>
         </div>
         
-        <div class="flex flex-col justify-center border-l-2 border-slate-800 pl-8 md:pl-12">
-          <p class="text-2xl md:text-3xl text-white font-bold mb-6 leading-tight">
-            "Atendimento direto ao ponto. Levei meu carro achando que gastaria muito com a suspensão, e me mostraram que era só uma peça simples."
-          </p>
-          <div class="font-mono text-slate-500 uppercase font-bold tracking-widest">— Marcos A.</div>
+        <div class="flex flex-col justify-center border-l-2 border-slate-800 pl-8 md:pl-12 w-full overflow-hidden relative">
+          <!-- Gradient Mask for smooth edges -->
+          <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
+          
+          <div class="flex gap-12 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] pb-4 w-full">
+            {[
+              {
+                text: "Só levo meus carros na Mecânica Souza há anos! Wendel que é o proprietário, sempre muito comprometido, atencioso e honesto com os clientes! Recomendo!",
+                author: "Mário Luiz da Silva Junior"
+              },
+              {
+                text: "Excelentes profissionais. Trabalham com honestidade ! Recomendo",
+                author: "Casa Das mangueiras"
+              },
+              {
+                text: "Resolvem os seus problemas",
+                author: "Marcelo Ribeiro"
+              },
+              {
+                text: "Eu somente levo meu carro pra fazer manutenção na SOUZA. Eles sempre são muito rápidos e transparentes, recomendo!",
+                author: "Vitor Rodrigues Cardoso"
+              }
+            ].map((review) => (
+              <div class="min-w-[85%] md:min-w-[100%] snap-center flex flex-col justify-center shrink-0">
+                <p class="text-2xl md:text-3xl text-white font-bold mb-6 leading-tight">
+                  "{review.text}"
+                </p>
+                <div class="font-mono text-slate-500 uppercase font-bold tracking-widest flex items-center gap-3">
+                  <span class="w-6 h-[2px] bg-red-600"></span>
+                  {review.author}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div class="flex items-center gap-2 mt-6 text-slate-500 text-sm font-mono uppercase tracking-widest">
+            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            Deslize para ver mais do Google
+          </div>
         </div>
       </div>
     </div>
