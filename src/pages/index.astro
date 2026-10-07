@@ -148,11 +148,11 @@ const schemaData = JSON.stringify({
 
     <!-- IMAGEM HERO: Container de altura fixa no mobile, centralizada, com zoom leve -->
     <div class="relative md:absolute md:inset-0 z-0 flex w-full h-[50svh] md:h-full animate-hero-zoom origin-center overflow-hidden">
-      <!-- Imagem deslocada para a esquerda (foco na direita 85%) p/ alinhar perfeitamente carro e logo -->
+      <!-- Imagem deslocada para a esquerda (foco na direita 100%) p/ alinhar perfeitamente carro e logo -->
       <img 
         src="/images/hero_hq.webp?v=2" 
         alt="Carro Audi em galpão com Letreiro 3D" 
-        class="w-full h-full object-cover object-[85%_center] md:object-center scale-[1.1] md:scale-100 contrast-[1.15] saturate-[1.2]"
+        class="w-full h-full object-cover object-right md:object-center scale-[1.1] md:scale-100 contrast-[1.15] saturate-[1.2]"
       />
       <!-- Fade simples e leve apenas na borda inferior -->
       <div class="block md:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none"></div>
@@ -248,14 +248,14 @@ const schemaData = JSON.stringify({
         </h2>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Diagnóstico -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Troca de Óleo e Filtros -->
         <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up">
           <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
-            <img src="/images/diag_computadorizado.jpg" alt="Diagnóstico Computadorizado" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <img src="/images/troca_oleo.jpg" alt="Troca de Óleo e Filtros" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           </div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Diagnóstico<br/>Computadorizado</h3>
-          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Equipamentos de ponta para leitura de falhas eletrônicas. Não "achamos" o problema, nós o lemos com exatidão no painel.</p>
+          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Troca de Óleo<br/>e Filtros</h3>
+          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Lubrificação correta é a vida do motor. Trabalhamos com óleos de alta performance para garantir durabilidade e eficiência máxima do seu veículo.</p>
         </div>
         
         <!-- Suspensão e Freios -->
@@ -283,6 +283,24 @@ const schemaData = JSON.stringify({
           </div>
           <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Revisão<br/>Preventiva</h3>
           <p class="text-slate-400 text-lg leading-relaxed flex-grow">Prevenção custa muito menos que o guincho. Check-up completo de fluidos, filtros, correias e itens de segurança.</p>
+        </div>
+
+        <!-- Embreagem e Câmbio -->
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up">
+          <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
+            <img src="/images/embreagem_cambio.jpg" alt="Embreagem e Câmbio" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+          </div>
+          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Embreagem<br/>e Câmbio</h3>
+          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Troca de kits de embreagem e manutenção de caixas de marcha com precisão, devolvendo a maciez e controle total da tração.</p>
+        </div>
+
+        <!-- Manutenção de Motor -->
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up" style="transition-delay: 50ms;">
+          <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
+            <img src="/images/manutencao_motor.jpg" alt="Manutenção de Motor" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+          </div>
+          <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Manutenção<br/>de Motor</h3>
+          <p class="text-slate-400 text-lg leading-relaxed flex-grow">Reparos no coração do seu veículo. Desde troca de correia dentada e juntas até retífica parcial, com a brutalidade e honestidade que a mecânica exige.</p>
         </div>
       </div>
     </div>
