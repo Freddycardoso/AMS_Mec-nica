@@ -148,11 +148,11 @@ const schemaData = JSON.stringify({
 
     <!-- IMAGEM HERO: Container de altura fixa no mobile, centralizada, com zoom leve -->
     <div class="relative md:absolute md:inset-0 z-0 flex w-full h-[50svh] md:h-full animate-hero-zoom origin-center overflow-hidden">
-      <!-- Imagem esticada e redimensionada p/ alinhar perfeitamente -->
+      <!-- Imagem deslocada para a esquerda (foco na direita 85%) p/ alinhar perfeitamente carro e logo -->
       <img 
         src="/images/hero_hq.webp?v=2" 
         alt="Carro Audi em galpão com Letreiro 3D" 
-        class="w-full h-full object-cover object-[center_60%] md:object-center scale-[1.2] md:scale-100 contrast-[1.15] saturate-[1.2]"
+        class="w-full h-full object-cover object-[85%_center] md:object-center scale-[1.1] md:scale-100 contrast-[1.15] saturate-[1.2]"
       />
       <!-- Fade simples e leve apenas na borda inferior -->
       <div class="block md:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none"></div>
