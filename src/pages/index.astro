@@ -124,8 +124,8 @@ const schemaData = JSON.stringify({
     
     <div class="relative z-10 max-w-2xl">
       <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-[1.05] tracking-tight uppercase mb-8 animate-text-reveal [animation-delay:2.5s]">
-        Pronto para rodar. <br/>
-        <span class="text-red-600 drop-shadow-lg">Sem surpresas.</span>
+        Você não precisa entender de mecânica, <br/>
+        <span class="text-red-600 drop-shadow-lg">só precisa de quem entende.</span>
       </h1>
       <p class="text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-xl mb-12 animate-text-reveal [animation-delay:3.0s]">
         Diagnóstico preciso e manutenção transparente em Passos/MG. Nós mostramos exatamente o que precisa ser feito, sem enrolação.
@@ -252,18 +252,29 @@ const schemaData = JSON.stringify({
           Nossas <br/><span class="text-blue-600">Unidades</span>
         </h2>
         <p class="text-xl text-slate-400">
-          Duas estruturas completas, padronizadas e prontas para receber seu veículo com o mesmo nível de excelência técnica.
+          Duas estruturas completas, padronizadas e prontas para receber seu veículo com o mesmo nível de excelência técnica. 
+          <br/><span class="text-white font-bold mt-2 inline-block">As duas lojas ficam no mesmo endereço, literalmente uma ao lado da outra!</span>
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Loja 1 -->
         <div class="group flex flex-col reveal-up">
-          <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 mb-6 relative">
-            <img src="/images/loja_1.jpg" alt="Fachada Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-            <div class="absolute inset-0 border border-white/5 pointer-events-none"></div>
+          <div class="grid grid-cols-2 gap-2 mb-6">
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
+              <img src="/images/loja_1.jpg" alt="Fachada Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-100" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
+                <span class="text-white font-mono text-sm tracking-widest font-bold">FACHADA</span>
+              </div>
+            </div>
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
+              <img src="/images/interior_1.jpg" alt="Interior Loja 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-200" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
+                <span class="text-white font-mono text-sm tracking-widest font-bold">INTERIOR</span>
+              </div>
+            </div>
           </div>
-          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Unidade Matriz</h3>
+          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Loja 01</h3>
           <p class="text-slate-400 text-lg leading-relaxed mb-4">Av. dos Industriais, 297 - Monsenhor Messias<br/>Passos - MG, 37901-215</p>
           <a href="#" class="inline-flex items-center gap-2 text-blue-500 font-bold hover:text-white transition-colors">
             Como chegar
@@ -272,13 +283,23 @@ const schemaData = JSON.stringify({
         </div>
 
         <!-- Loja 2 -->
-        <div class="group flex flex-col reveal-up" style="transition-delay: 100ms;">
-          <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 mb-6 relative">
-            <img src="/images/loja_2.jpg" alt="Interior Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-            <div class="absolute inset-0 border border-white/5 pointer-events-none"></div>
+        <div class="group flex flex-col reveal-up" style="transition-delay: 150ms;">
+          <div class="grid grid-cols-2 gap-2 mb-6">
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
+              <img src="/images/loja_2.jpg" alt="Fachada Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-100" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
+                <span class="text-white font-mono text-sm tracking-widest font-bold">FACHADA</span>
+              </div>
+            </div>
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
+              <img src="/images/interior_2.jpg" alt="Interior Loja 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 delay-200" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
+                <span class="text-white font-mono text-sm tracking-widest font-bold">INTERIOR</span>
+              </div>
+            </div>
           </div>
-          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Unidade Express</h3>
-          <p class="text-slate-400 text-lg leading-relaxed mb-4">Rua Nova, 100 - Centro<br/>Passos - MG, 37900-000</p>
+          <h3 class="font-bold text-2xl text-white mb-2 uppercase tracking-tight">Loja 02</h3>
+          <p class="text-slate-400 text-lg leading-relaxed mb-4">Av. dos Industriais, 297 - Monsenhor Messias<br/>Passos - MG, 37901-215 (Ao lado da Loja 01)</p>
           <a href="#" class="inline-flex items-center gap-2 text-blue-500 font-bold hover:text-white transition-colors">
             Como chegar
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
