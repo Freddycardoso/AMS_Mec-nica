@@ -454,11 +454,11 @@ const schemaData = JSON.stringify([
           </div>
         </div>
         
-        <div class="flex flex-col justify-center border-l-2 border-slate-800 pl-8 md:pl-12 w-full overflow-hidden relative">
+        <div class="flex flex-col justify-center border-l-2 border-slate-800 pl-8 md:pl-12 w-full overflow-hidden relative" id="reviews-carousel">
           <!-- Gradient Mask for smooth edges -->
           <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
           
-          <div class="flex gap-12 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] pb-4 w-full">
+          <div id="reviews-track" class="flex gap-12 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] pb-4 w-full scroll-smooth">
             {[
               {
                 text: "Só levo meus carros na Mecânica Souza há anos! Wendel que é o proprietário, sempre muito comprometido, atencioso e honesto com os clientes! Recomendo!",
@@ -477,7 +477,7 @@ const schemaData = JSON.stringify([
                 author: "Vitor Rodrigues Cardoso"
               }
             ].map((review) => (
-              <div class="min-w-[85%] md:min-w-[100%] snap-center flex flex-col justify-center shrink-0">
+              <div class="min-w-[100%] snap-center flex flex-col justify-center shrink-0">
                 <p class="text-2xl md:text-3xl text-white font-bold mb-6 leading-tight">
                   "{review.text}"
                 </p>
@@ -489,9 +489,16 @@ const schemaData = JSON.stringify([
             ))}
           </div>
           
-          <div class="flex items-center gap-2 mt-6 text-slate-500 text-sm font-mono uppercase tracking-widest">
-            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            Deslize para ver mais do Google
+          <div class="flex items-center gap-4 mt-8 relative z-20">
+            <button id="prev-review" class="p-3 bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-all rounded-full outline-none focus:ring-2 focus:ring-blue-500 active:scale-95 cursor-pointer" aria-label="Avaliação anterior">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="next-review" class="p-3 bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-all rounded-full outline-none focus:ring-2 focus:ring-blue-500 active:scale-95 cursor-pointer" aria-label="Próxima avaliação">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <span class="ml-2 font-mono text-xs font-bold text-slate-500 uppercase tracking-widest hidden md:inline-block">
+              Mais Avaliações
+            </span>
           </div>
         </div>
       </div>
@@ -643,8 +650,8 @@ const schemaData = JSON.stringify([
 </BaseLayout>
 
 <script>
-  // Intersection Observer for scroll animations
   document.addEventListener('DOMContentLoaded', () => {
+    // Intersection Observer for scroll animations
     const observerOptions = {
       root: null,
       rootMargin: '0px',
@@ -663,5 +670,38 @@ const schemaData = JSON.stringify([
     document.querySelectorAll('.reveal-up').forEach((el) => {
       observer.observe(el);
     });
+
+    // Reviews Carousel logic
+    const track = document.getElementById('reviews-track');
+    const prevBtn = document.getElementById('prev-review');
+    const nextBtn = document.getElementById('next-review');
+    
+    if (track && prevBtn && nextBtn) {
+      const items = track.children;
+      
+      nextBtn.addEventListener('click', () => {
+        if (items.length > 0) {
+          const itemWidth = items[0].getBoundingClientRect().width;
+          // Verifica se está no final (com uma margem de erro de 10px)
+          if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+            track.scrollTo({ left: 0, behavior: 'smooth' }); // Volta ao inicio
+          } else {
+            track.scrollBy({ left: itemWidth + 48, behavior: 'smooth' }); // +48 é o gap-12 (3rem)
+          }
+        }
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (items.length > 0) {
+          const itemWidth = items[0].getBoundingClientRect().width;
+          // Verifica se está no inicio (com margem de erro)
+          if (track.scrollLeft <= 10) {
+            track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' }); // Vai pro fim
+          } else {
+            track.scrollBy({ left: -(itemWidth + 48), behavior: 'smooth' });
+          }
+        }
+      });
+    }
   });
 </script>
