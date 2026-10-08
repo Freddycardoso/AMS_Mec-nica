@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.automecanicasouza.com.br',
+  site: 'https://www.amsservicosautomotivos.com.br',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
