@@ -15,7 +15,7 @@ const schemaData = JSON.stringify([
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     "name": "Auto Mecânica Souza",
-    "image": "https://www.automecanicasouza.com.br/logo.png",
+    "image": "https://www.automecanicasouza.com.br/logo.webp",
     "url": canonicalURL,
     "telephone": "+5535991995016",
     "address": {
@@ -95,12 +95,14 @@ const schemaData = JSON.stringify([
   description={pageDescription} 
   canonicalURL={canonicalURL} 
   schema={schemaData}
-  ogImage="https://www.automecanicasouza.com.br/logo.png"
+  ogImage="https://www.automecanicasouza.com.br/logo.webp"
 >
   <Fragment slot="head">
     <!-- Preload das imagens críticas para carregar instantaneamente -->
-    <link rel="preload" href="/images/garage_door_hq.webp?v=2" as="image" />
-    <link rel="preload" href="/images/hero_hq.webp?v=2" as="image" />
+    <link rel="preload" href="/images/garage_door_hq-mobile.webp?v=2" as="image" media="(max-width: 768px)" />
+    <link rel="preload" href="/images/garage_door_hq.webp?v=2" as="image" media="(min-width: 769px)" />
+    <link rel="preload" href="/images/hero_hq-mobile.webp?v=2" as="image" media="(max-width: 768px)" />
+    <link rel="preload" href="/images/hero_hq.webp?v=2" as="image" media="(min-width: 769px)" />
     
     <!-- CSS Crítico Inline (Evita piscar/FOUC enquanto o CSS do Tailwind carrega) -->
     <style is:inline>
@@ -127,6 +129,7 @@ const schemaData = JSON.stringify([
       }
       @media (max-width: 768px) {
         #garage-door-preloader {
+          background-image: url('/images/garage_door_hq-mobile.webp?v=2');
           /* Encaixe forçado: 100% 100% cobre a tela inteira, evita bordas pretas e evita cortar o logo nas laterais */
           background-size: 100% 100%;
           background-position: center;
@@ -141,7 +144,7 @@ const schemaData = JSON.stringify([
   <!-- Navbar - Industrial -->
   <header class="w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 py-4 px-6 md:px-12 flex flex-wrap justify-between items-center sticky top-0 z-40 machined-edge">
     <div class="flex items-center gap-3">
-      <img src="/logo.png" alt="Auto Mecânica Souza" class="h-10 md:h-12 w-auto object-contain drop-shadow-md" />
+      <img src="/logo.webp" alt="Auto Mecânica Souza" class="h-10 md:h-12 w-auto object-contain drop-shadow-md" />
       <span class="font-extrabold text-white uppercase tracking-tight text-lg md:text-xl">Auto Mecânica Souza</span>
     </div>
     
@@ -202,7 +205,7 @@ const schemaData = JSON.stringify([
     <div class="relative md:absolute md:inset-0 z-0 flex w-full h-[50svh] md:h-full animate-hero-zoom origin-center overflow-hidden">
       <!-- Imagem deslocada para a esquerda (foco na direita 100%) p/ alinhar perfeitamente carro e logo -->
       <img 
-        src="/images/hero_hq.webp?v=2" 
+        src="/images/hero_hq.webp?v=2" srcset="/images/hero_hq-mobile.webp?v=2 600w, /images/hero_hq.webp?v=2 1200w" sizes="(max-width: 768px) 100vw, 50vw" 
         alt="Carro Audi em galpão com Letreiro 3D" 
         fetchpriority="high"
         loading="eager"
@@ -315,7 +318,7 @@ const schemaData = JSON.stringify([
         <!-- Troca de Óleo e Filtros -->
         <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up">
           <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
-            <img src="/images/troca_oleo.webp" alt="Troca de Óleo e Filtros" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <img src="/images/troca_oleo.webp" srcset="/images/troca_oleo-mobile.webp 600w, /images/troca_oleo.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Troca de Óleo e Filtros" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           </div>
           <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Troca de Óleo<br/>e Filtros</h3>
           <p class="text-slate-400 text-lg leading-relaxed flex-grow">Lubrificação correta é a vida do motor. Trabalhamos com óleos de alta performance para garantir durabilidade e eficiência máxima do seu veículo.</p>
@@ -324,7 +327,7 @@ const schemaData = JSON.stringify([
         <!-- Suspensão e Freios -->
         <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up" style="transition-delay: 50ms;">
           <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
-            <img src="/images/freios_suspensao.webp" alt="Suspensão e Freios" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <img src="/images/freios_suspensao.webp" srcset="/images/freios_suspensao-mobile.webp 600w, /images/freios_suspensao.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Suspensão e Freios" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           </div>
           <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Suspensão<br/>e Freios</h3>
           <p class="text-slate-400 text-lg leading-relaxed flex-grow">Sua segurança não aceita economia burra. Utilizamos peças certificadas para garantir estabilidade e frenagem perfeita.</p>
@@ -333,7 +336,7 @@ const schemaData = JSON.stringify([
         <!-- Injeção Eletrônica -->
         <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up">
           <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
-            <img src="/images/injecao_motor.webp" alt="Injeção Eletrônica" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <img src="/images/injecao_motor.webp" srcset="/images/injecao_motor-mobile.webp 600w, /images/injecao_motor.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Injeção Eletrônica" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           </div>
           <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Injeção<br/>Eletrônica</h3>
           <p class="text-slate-400 text-lg leading-relaxed flex-grow">Limpeza, equalização de bicos e parametrização do sistema para seu motor rodar suave, forte e econômico.</p>
@@ -342,7 +345,7 @@ const schemaData = JSON.stringify([
         <!-- Revisão Preventiva -->
         <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up" style="transition-delay: 50ms;">
           <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
-            <img src="/images/revisao_preventiva.webp" alt="Revisão Preventiva" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <img src="/images/revisao_preventiva.webp" srcset="/images/revisao_preventiva-mobile.webp 600w, /images/revisao_preventiva.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Revisão Preventiva" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           </div>
           <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Revisão<br/>Preventiva</h3>
           <p class="text-slate-400 text-lg leading-relaxed flex-grow">Prevenção custa muito menos que o guincho. Check-up completo de fluidos, filtros, correias e itens de segurança.</p>
@@ -351,7 +354,7 @@ const schemaData = JSON.stringify([
         <!-- Embreagem e Câmbio -->
         <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up">
           <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
-            <img src="/images/embreagem_cambio.webp" alt="Embreagem e Câmbio" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <img src="/images/embreagem_cambio.webp" srcset="/images/embreagem_cambio-mobile.webp 600w, /images/embreagem_cambio.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Embreagem e Câmbio" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           </div>
           <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Embreagem<br/>e Câmbio</h3>
           <p class="text-slate-400 text-lg leading-relaxed flex-grow">Troca de kits de embreagem e manutenção de caixas de marcha com precisão, devolvendo a maciez e controle total da tração.</p>
@@ -360,7 +363,7 @@ const schemaData = JSON.stringify([
         <!-- Manutenção de Motor -->
         <div class="bg-slate-950 border border-slate-800 p-8 rounded-sm hover:machined-edge transition-all duration-[160ms] ease-out-strong group flex flex-col reveal-up" style="transition-delay: 50ms;">
           <div class="w-full aspect-video mb-8 overflow-hidden rounded-sm bg-slate-900">
-            <img src="/images/manutencao_motor.webp" alt="Manutenção de Motor" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+            <img src="/images/manutencao_motor.webp" srcset="/images/manutencao_motor-mobile.webp 600w, /images/manutencao_motor.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Manutenção de Motor" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           </div>
           <h3 class="font-bold text-2xl md:text-3xl text-white mb-4 uppercase tracking-tight mt-2">Manutenção<br/>de Motor</h3>
           <p class="text-slate-400 text-lg leading-relaxed flex-grow">Reparos no coração do seu veículo. Desde troca de correia dentada e juntas até retífica parcial, com a brutalidade e honestidade que a mecânica exige.</p>
@@ -390,13 +393,13 @@ const schemaData = JSON.stringify([
           </h3>
           <div class="flex flex-col gap-6">
             <div class="w-full aspect-[16/9] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/loja_1.webp" alt="Fachada Loja 1" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
+              <img src="/images/loja_1.webp" srcset="/images/loja_1-mobile.webp 600w, /images/loja_1.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Fachada Loja 1" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-6 justify-center">
                 <span class="text-white font-mono text-sm tracking-widest font-bold drop-shadow-md">FACHADA</span>
               </div>
             </div>
             <div class="w-full aspect-[16/9] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/interior_1.webp" alt="Interior Loja 1" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
+              <img src="/images/interior_1.webp" srcset="/images/interior_1-mobile.webp 600w, /images/interior_1.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Interior Loja 1" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-6 justify-center">
                 <span class="text-white font-mono text-sm tracking-widest font-bold drop-shadow-md">INTERIOR</span>
               </div>
@@ -415,13 +418,13 @@ const schemaData = JSON.stringify([
           </h3>
           <div class="flex flex-col gap-6">
             <div class="w-full aspect-[16/9] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/loja_2.webp" alt="Fachada Loja 2" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
+              <img src="/images/loja_2.webp" srcset="/images/loja_2-mobile.webp 600w, /images/loja_2.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Fachada Loja 2" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-6 justify-center">
                 <span class="text-white font-mono text-sm tracking-widest font-bold drop-shadow-md">FACHADA</span>
               </div>
             </div>
             <div class="w-full aspect-[16/9] overflow-hidden rounded-sm bg-slate-900 border border-slate-800 relative">
-              <img src="/images/interior_2.webp" alt="Interior Loja 2" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
+              <img src="/images/interior_2.webp" srcset="/images/interior_2-mobile.webp 600w, /images/interior_2.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Interior Loja 2" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out-strong" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-6 justify-center">
                 <span class="text-white font-mono text-sm tracking-widest font-bold drop-shadow-md">INTERIOR</span>
               </div>
@@ -633,7 +636,7 @@ const schemaData = JSON.stringify([
       <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
         <div>
           <div class="flex items-center gap-3 mb-6">
-            <img src="/logo.png" alt="Auto Mecânica Souza" class="h-10 w-auto object-contain opacity-80" />
+            <img src="/logo.webp" alt="Auto Mecânica Souza" class="h-10 w-auto object-contain opacity-80" />
             <span class="font-extrabold text-white uppercase tracking-tight text-lg md:text-xl opacity-80">Auto Mecânica Souza</span>
           </div>
           <p class="text-slate-400">Oficinas parceiras independentes, referência em diagnóstico e manutenção em Passos/MG.</p>
