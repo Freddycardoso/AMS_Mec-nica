@@ -1,12 +1,18 @@
 # Auto Mecânica Souza
 
+> Oficina mecânica de referência em Passos/MG, especializada em manutenção automotiva preventiva e corretiva.
+
 ## Sobre
 A Auto Mecânica Souza é uma oficina mecânica de referência localizada em Passos, MG. Nós oferecemos manutenção automotiva preventiva e corretiva com foco na transparência, rapidez e garantia de serviço.
+
+## Links Rápidos
+- [Página Inicial](https://www.amsservicosautomotivos.com.br/)
+- [Sitemap](https://www.amsservicosautomotivos.com.br/sitemap.xml)
 
 ## Contato e Localização (NAP)
 - **Endereço:** Av. dos Industriais, 297 - Monsenhor Messias, Passos - MG, 37901-215, Brasil
 - **WhatsApp / Telefone:** +55 (35) 99199-5016
-- **Site:** https://www.automecanicasouza.com.br/
+- **Site:** [AMS Serviços Automotivos](https://www.amsservicosautomotivos.com.br/)
 
 ## Horário de Funcionamento
 - **Segunda a Sexta:** 07:30 às 18:00
